@@ -112,7 +112,10 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',  # <-- Add this line
     ],
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+
 }
 
 # CORS settings
@@ -130,4 +133,4 @@ SPOTIFY_REDIRECT_URI = os.getenv('SPOTIFY_REDIRECT_URI', 'http://localhost:8000/
 
 # Weather API settings
 WEATHER_API_KEY = os.getenv('WEATHER_API_KEY', '')
-DEFAULT_LOCATION = os.getenv('DEFAULT_LOCATION', 'Patna,India')
+DEFAULT_LOCATION = os.getenv('DEFAULT_LOCATION', 'Mumbai,India')
